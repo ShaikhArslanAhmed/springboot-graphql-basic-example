@@ -11,4 +11,6 @@ public interface BookService {
     public Book getBook(int i);
 
     public List<Book> getAll();
+
+    public Book getBookByName(String name);
 }

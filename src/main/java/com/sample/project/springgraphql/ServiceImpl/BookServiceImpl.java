@@ -16,13 +16,20 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book createBook(Book b) {
-        return bookRepository.save(b);
+        Book a = bookRepository.save(b);
+        return getBook(a.getId());
     }
 
     @Override
     public Book getBook(int id) {
        return bookRepository.findById(id).orElseThrow(()->new RuntimeException("Book not found"));
     }
+
+    @Override
+    public Book getBookByName(String name) {
+        return bookRepository.findBookByTitle(name);
+    }
+
 
     @Override
     public List<Book> getAll() {
